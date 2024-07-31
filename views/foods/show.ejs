@@ -9,7 +9,9 @@
   <%- include('../partials/_navbar.ejs') %>
 
   <h1><%= food.name %></h1>
-
+  <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit">
+    Edit this item.
+  </a>
     <form
         action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE"
         method="POST"
