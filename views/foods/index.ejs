@@ -10,6 +10,20 @@
     <h1> Welcome to my Pantry!</h1>
 
     <a href="/users/<%=user._id%>/foods/new">Add New Item</a>
+    <br>
+    <ul>
+    <% if (foods) { %>
+        <% foods.forEach((food) => { %>
+            <li>
+                <a href="/users/<%= user._id%>/foods/<%= food._id %>">
+            <%= food.name %>
+            </a>
+            </li>
+            <% }) %>
+            <% } else { %> There are no items in this pantry.
+                <% } %>
+            </ul>
+
 
 </body>
 </html>
