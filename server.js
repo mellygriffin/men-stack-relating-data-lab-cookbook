@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 const session = require('express-session');
+const path = require("path");
 
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
@@ -32,6 +33,7 @@ app.use(
     saveUninitialized: true,
   })
 );
+app.use(express.static(path.join(__dirname, "public")))
 
 app.get('/', (req, res) => {
   res.render('index.ejs', {
