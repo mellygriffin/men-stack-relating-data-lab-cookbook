@@ -10,10 +10,10 @@
 
   <h1><%= user.username %>'s Pantry</h1>
   <ul>
-    <% if (user.foods) { %>
-        <% foods.forEach((food) => { %>
+    <% if (user.pantry) { %>
+        <% user.pantry.forEach((food) => { %>
             <li>
-                <a href="/users/<%= user._id%>/foods/<%= food._id %>">
+                <a href="/users/<%= user.username %>/foods/<%= food._id %>">
             <%= food.name %>
             </a>
             </li>

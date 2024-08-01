@@ -19,11 +19,11 @@ router.get('/', async (req, res) => {
 });
 
 //SHOW route
-router.get('/:userId', async (req, res) => {
+router.get('/:username/show', async (req, res) => {
     try {
-        await User.findById(req.session.user._id);
+        const selectedUser = await User.findOne({username: req.params.username});
         res.render('users/show.ejs', {
-            user: currentUser,
+            user: selectedUser,
         });
     } catch (error) {
         console.log(error);
